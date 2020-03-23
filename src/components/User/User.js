@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { useData } from '../../Store/DataProvider';
 
@@ -13,7 +13,6 @@ const User = () => {
 
 
     let soldier;
-    let errorHappen = '';
 
     switch (userSearch) {
         case 'morshaked88':

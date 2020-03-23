@@ -27,8 +27,12 @@ const DataProvider = ({ children }) => {
     const [shaharDB, set_shaharDB] = useState(null);
     //is fetching API?
     const [fetching, set_fetching] = useState(true);
-
+    //user input search
     const [userSearch, set_userSearch] = useState('');
+    //compare option 1
+    const [selectOne, set_selectOne] = useState('eitam1000');
+    //compare option 2
+    const [selectTwo, set_selectTwo] = useState('eitam1000');
 
 
     useEffect(() => {
@@ -64,11 +68,15 @@ const DataProvider = ({ children }) => {
         salimiDB,
         shaharDB,
         fetching,
-        userSearch
+        userSearch,
+        selectOne,
+        selectTwo
     }
 
     const cb = {
-        set_userSearch
+        set_userSearch,
+        set_selectOne,
+        set_selectTwo
     }
 
 

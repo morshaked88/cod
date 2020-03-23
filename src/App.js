@@ -5,6 +5,7 @@ import { DataProvider } from './Store/DataProvider';
 
 import NavBar from './components/NavBar/NavBar';
 import User from './components/User/User';
+import Compare from './components/Compare/Compare';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Container>
           <NavBar />
           <Route exact path='/' component={User} />
+          <Route path='/compare' component={Compare} />
         </Container>
       </DataProvider>
     </Router>
