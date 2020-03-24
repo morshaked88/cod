@@ -1,19 +1,74 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { useData } from '../../Store/DataProvider';
+import CompareShow from './CompareShow';
 
 const Select = () => {
 
-    const { selectOne, selectTwo, set_selectOne, set_selectTwo } = useData();
+    const { selectOne, selectTwo, set_selectOne, set_selectTwo, get_comparison, morDB, avihaiDB, guyDB, salimiDB, shaharDB } = useData();
+
+    let soldier1;
+    let soldier2;
+
+    if (selectOne !== '' && selectTwo !== '') {
+        switch (selectOne) {
+            case 'morshaked88':
+                soldier1 = morDB;
+                break;
+            case 'eitam1000':
+                soldier1 = avihaiDB;
+                break;
+            case 'gyrose57':
+                soldier1 = guyDB;
+                break;
+            case 'yakirhs':
+                soldier1 = salimiDB;
+                break;
+            case 'captainhookhit':
+                soldier1 = shaharDB;
+                break;
+            default:
+                soldier1 = 'Username not selected';
+        }
+
+        switch (selectTwo) {
+            case 'morshaked88':
+                soldier2 = morDB;
+                break;
+            case 'eitam1000':
+                soldier2 = avihaiDB;
+                break;
+            case 'gyrose57':
+                soldier2 = guyDB;
+                break;
+            case 'yakirhs':
+                soldier2 = salimiDB;
+                break;
+            case 'captainhookhit':
+                soldier2 = shaharDB;
+                break;
+            default:
+                soldier2 = 'Username not selected';
+        }
+
+    }
 
     const handleChange = (e, func) => {
         func(e.target.value);
+    }
+
+    const getCompareValue = (e) => {
+        e.preventDefault();
+
+        get_comparison([soldier1, soldier2])
+
     }
 
     return (
         <Box>
             <Box2>
                 <SelectBox onChange={(e) => handleChange(e, set_selectOne)} value={selectOne}>
+                    <Option value=''>Pick Player</Option>
                     <Option value='eitam1000'>Eitam1000</Option>
                     <Option value='morshaked88'>Morshaked88</Option>
                     <Option value='gyrose57'>Gyrose57</Option>
@@ -22,6 +77,7 @@ const Select = () => {
                 </SelectBox>
                 <To>to</To>
                 <SelectBox onChange={(e) => handleChange(e, set_selectTwo)} value={selectTwo}>
+                    <Option value=''>Pick Player</Option>
                     <Option value='eitam1000'>Eitam1000</Option>
                     <Option value='morshaked88'>Morshaked88</Option>
                     <Option value='gyrose57'>Gyrose57</Option>
@@ -30,8 +86,9 @@ const Select = () => {
                 </SelectBox>
             </Box2>
             <Box3>
-                <Button>COMPARE</Button>
+                <Button type='submit' value='Submit' onClick={(e) => getCompareValue(e)}>COMPARE</Button>
             </Box3>
+            <CompareShow />
         </Box>
     )
 };

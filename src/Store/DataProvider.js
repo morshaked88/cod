@@ -30,9 +30,11 @@ const DataProvider = ({ children }) => {
     //user input search
     const [userSearch, set_userSearch] = useState('');
     //compare option 1
-    const [selectOne, set_selectOne] = useState('eitam1000');
+    const [selectOne, set_selectOne] = useState('');
     //compare option 2
-    const [selectTwo, set_selectTwo] = useState('eitam1000');
+    const [selectTwo, set_selectTwo] = useState('');
+    //get the 2 selection to compare
+    const [comparison, get_comparison] = useState(null)
 
 
     useEffect(() => {
@@ -70,13 +72,15 @@ const DataProvider = ({ children }) => {
         fetching,
         userSearch,
         selectOne,
-        selectTwo
+        selectTwo,
+        comparison
     }
 
     const cb = {
         set_userSearch,
         set_selectOne,
-        set_selectTwo
+        set_selectTwo,
+        get_comparison
     }
 
 

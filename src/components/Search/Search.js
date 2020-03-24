@@ -19,14 +19,23 @@ const Search = () => {
     //send API request to get weather data on btn click
     const onBtnClickSearch = (e) => {
         e.preventDefault();
-        set_userSearch(user_input);
+        if (user_input === undefined) {
+            console.log('issue')
+        } else {
+
+            set_userSearch(user_input.toLowerCase());
+        }
 
     }
 
     //send API request to get weather data on keypress
     const EntersSearch = (e) => {
         if (e.key === 'Enter') {
-            set_userSearch(user_input);
+            if (user_input === undefined) {
+                console.log('issue')
+            } else {
+                set_userSearch(user_input.toLowerCase());
+            }
         }
     }
 
@@ -55,6 +64,7 @@ padding-left: 0.5rem;
 border: none;
 border-bottom-left-radius: 0.8rem;
 border-top-left-radius: 0.8rem;
+outline: none;
 `;
 
 const Button = styled.button`
@@ -63,5 +73,6 @@ width: 3.5rem;
 border-bottom-right-radius: 0.8rem;
 border-top-right-radius: 0.8rem;
 border: none;
+outline: none;
 `;
 

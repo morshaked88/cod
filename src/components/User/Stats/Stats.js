@@ -93,6 +93,7 @@ const Avater = styled.img`
 height: 7rem;
 border-radius: 50%;
 margin-right: 1.5rem;
+border: 0.2rem solid white;
 `;
 
 const Name = styled.h3`
