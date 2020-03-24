@@ -11,12 +11,13 @@ const Search = () => {
     let user_input;
 
 
+    //get user input value
     const getValue = (e) => {
         e.preventDefault();
         user_input = e.target.value;
     }
 
-    //send API request to get weather data on btn click
+    //send API request to get username on btn click
     const onBtnClickSearch = (e) => {
         e.preventDefault();
         if (user_input === undefined) {
@@ -28,7 +29,7 @@ const Search = () => {
 
     }
 
-    //send API request to get weather data on keypress
+    //send API request to get username data on keypress
     const EntersSearch = (e) => {
         if (e.key === 'Enter') {
             if (user_input === undefined) {

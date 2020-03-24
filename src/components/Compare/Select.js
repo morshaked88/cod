@@ -10,6 +10,8 @@ const Select = () => {
     let soldier1;
     let soldier2;
 
+
+    //find which ID should be on comperasion
     if (selectOne !== '' && selectTwo !== '') {
         switch (selectOne) {
             case 'morshaked88':
@@ -53,10 +55,14 @@ const Select = () => {
 
     }
 
+
+    //save ID for comperasion to state
     const handleChange = (e, func) => {
         func(e.target.value);
     }
 
+
+    //save the 2 options to compare to state
     const getCompareValue = (e) => {
         e.preventDefault();
 

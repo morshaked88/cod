@@ -9,16 +9,17 @@ import DeathStats from './DeathStats';
 const CompareShow = () => {
     const { comparison } = useData();
 
+    //re-render each time comperasion changes
     useEffect(() => {
 
     }, [comparison])
 
+
+    //make sure data arrived
     if (comparison !== null) {
 
         var img1 = `/images/users/${comparison[0].username}.jpg`;
         var img2 = `/images/users/${comparison[1].username}.jpg`;
-
-        console.log(comparison);
     }
 
 

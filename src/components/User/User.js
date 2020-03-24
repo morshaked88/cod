@@ -14,6 +14,7 @@ const User = () => {
 
     let soldier;
 
+    //check which username should be presented
     switch (userSearch) {
         case 'morshaked88':
             soldier = morDB;

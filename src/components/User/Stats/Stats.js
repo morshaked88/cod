@@ -8,10 +8,10 @@ const Stats = ({ obj }) => {
 
     const data = { ...obj };
 
-    console.log(data);
-
+    //get user avatar
     const userAvatar = `/images/users/${data.username}.jpg`;
 
+    //show user name with first letter uppercase
     const upperName = data.username ? data.username.charAt(0).toUpperCase() + data.username.slice(1) : null;
 
     return (
