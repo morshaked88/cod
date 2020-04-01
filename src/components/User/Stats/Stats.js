@@ -3,16 +3,18 @@ import styled from 'styled-components';
 import Spinner from '../../Spinner/Spinner';
 import InfoBox from './InfoBox';
 import { Link } from 'react-router-dom';
+import SearchError from '../../Error/SearchError';
 
 const Stats = ({ obj }) => {
 
     const data = { ...obj };
 
     //get user avatar
-    const userAvatar = `/images/users/${data.username}.jpg`;
+    const userAvatar = data.avatar ? `/images/users/${data.username}.jpg` : '/images/users/Blank.png';
 
     //show user name with first letter uppercase
     const upperName = data.username ? data.username.charAt(0).toUpperCase() + data.username.slice(1) : null;
+
 
     return (
         <Box>
@@ -50,7 +52,7 @@ const Stats = ({ obj }) => {
                     </StatsBox>
                 </Box>
                 :
-                <Spinner />
+                <SearchError error_code='user not found' />
             }
 
 

@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FaSearch } from 'react-icons/fa';
+import { FaSearch, FaUniregistry } from 'react-icons/fa';
 import { useData } from '../../Store/DataProvider';
+import * as getData from '../../service/getApi';
 
 const Search = () => {
 
-    const { set_userSearch } = useData();
+    const { set_userSearch, set_userDB } = useData();
 
 
     let user_input;
@@ -18,26 +19,20 @@ const Search = () => {
     }
 
     //send API request to get username on btn click
-    const onBtnClickSearch = (e) => {
+    const onBtnClickSearch = async (e) => {
         e.preventDefault();
-        if (user_input === undefined) {
-            console.log('issue')
-        } else {
-
-            set_userSearch(user_input.toLowerCase());
-        }
-
+        const res = await getData.getSoldier(user_input);
+        set_userDB(res);
     }
 
     //send API request to get username data on keypress
-    const EntersSearch = (e) => {
+    const EntersSearch = async (e) => {
         if (e.key === 'Enter') {
-            if (user_input === undefined) {
-                console.log('issue')
-            } else {
-                set_userSearch(user_input.toLowerCase());
-            }
+            e.preventDefault();
+            const res = await getData.getSoldier(user_input);
+            set_userDB(res);
         }
+
     }
 
     return (
@@ -66,6 +61,7 @@ border: none;
 border-bottom-left-radius: 0.8rem;
 border-top-left-radius: 0.8rem;
 outline: none;
+background-color: rgba(217, 217, 217, 0.8);
 `;
 
 const Button = styled.button`
@@ -75,5 +71,6 @@ border-bottom-right-radius: 0.8rem;
 border-top-right-radius: 0.8rem;
 border: none;
 outline: none;
+background-color: rgba(173, 173, 173, 1);
 `;
 

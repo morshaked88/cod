@@ -4,25 +4,39 @@ export const getSoldier = async (name) => {
 
         const res = await fetch(url);
         const data = await res.json();
-        const userData = {
-            username: data.data.username,
-            level: data.data.level,
-            wins: data.data.lifetime.mode.br_dmz.properties.wins,
-            kills: data.data.lifetime.mode.br_dmz.properties.kills,
-            kdRatio: data.data.lifetime.mode.br_dmz.properties.kdRatio,
-            downs: data.data.lifetime.mode.br_dmz.properties.downs,
-            topTen: data.data.lifetime.mode.br_dmz.properties.topTen,
-            contracts: data.data.lifetime.mode.br_dmz.properties.contracts,
-            score: data.data.lifetime.mode.br_dmz.properties.score,
-            gamesPlayed: data.data.lifetime.mode.br_dmz.properties.gamesPlayed,
-            cash: data.data.lifetime.mode.br_dmz.properties.cash,
-            deaths: data.data.lifetime.mode.br_dmz.properties.deaths
+        const names = ['morshaked88', 'eitam1000', 'gyrose57', 'captainhookhit', 'yakirhs']
+        const isAvatar = names.includes(name);
+
+        if (data.status === 'error') {
+            const userData = {
+                error: true
+            }
+
+            return userData;
+        } else {
+            const userData = {
+                username: data.data.username,
+                avatar: isAvatar,
+                level: data.data.level,
+                wins: data.data.lifetime.mode.br_dmz.properties.wins,
+                kills: data.data.lifetime.mode.br_dmz.properties.kills,
+                kdRatio: data.data.lifetime.mode.br_dmz.properties.kdRatio,
+                downs: data.data.lifetime.mode.br_dmz.properties.downs,
+                topTen: data.data.lifetime.mode.br_dmz.properties.topTen,
+                contracts: data.data.lifetime.mode.br_dmz.properties.contracts,
+                score: data.data.lifetime.mode.br_dmz.properties.score,
+                gamesPlayed: data.data.lifetime.mode.br_dmz.properties.gamesPlayed,
+                cash: data.data.lifetime.mode.br_dmz.properties.cash,
+                deaths: data.data.lifetime.mode.br_dmz.properties.deaths
+            }
+
+            return userData;
 
         };
 
-        return userData;
+
     } catch (error) {
-        console.log(error)
+        throw new Error(error)
     }
 
 }

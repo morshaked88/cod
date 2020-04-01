@@ -15,6 +15,8 @@ const useData = () => {
 }
 
 const DataProvider = ({ children }) => {
+    //user database
+    const [userDB, set_userDB] = useState(null);
     //avihai database
     const [avihaiDB, set_avihaiDB] = useState(null);
     //mor database
@@ -73,14 +75,16 @@ const DataProvider = ({ children }) => {
         userSearch,
         selectOne,
         selectTwo,
-        comparison
+        comparison,
+        userDB
     }
 
     const cb = {
         set_userSearch,
         set_selectOne,
         set_selectTwo,
-        get_comparison
+        get_comparison,
+        set_userDB
     }
 
 

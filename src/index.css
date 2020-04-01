@@ -15,7 +15,10 @@ html {
 
 body{
   font-size: 1.6rem;
-  background-color: black;
+  background-image: linear-gradient(to right bottom, rgba(44, 50, 74, 0.7), rgba(35, 40, 59, 0.6)), url('/images/bg/mobile');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   font-family: 'Lato', sans-serif;
 
 }
